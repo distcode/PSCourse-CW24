@@ -14,6 +14,7 @@ switch ($tempColor) {
         break
     }
     'Yellow' {
+        # Dieser Fall wird niemals ausgeführt !!!
         "Die Farbe ist DUNKELGELB"
         break
     }
