@@ -15,8 +15,5 @@ function Get-Weather {
         [string]$City = 'Vienna'
     )
 
-    $Bedeckung = 'bewölkt','wolkenlos' | Get-Random -Count 1
-    $Temperatur = Get-Random -Minimum 16 -Maximum 31
-
-    "In $City hat es gerade $temperatur Grad und der Himmel ist $bedeckung"
+    Invoke-RestMethod -Uri "https://wttr.in/$city"
 }
