@@ -1,0 +1,344 @@
+winget install microsoft.powershell
+klist
+cd \
+Get-WindowsOptionalFeature -online
+Get-WindowsOptionalFeature -online | ft
+Get-AppxPackage
+Get-AppxPackage | ft
+Get-WindowsCapability | ft
+Get-WindowsCapability -online < ft
+Get-WindowsCapability -online | ft
+Get-Module -ListAvailable
+get-command -noun windowscapa*
+get-windowsCapability -online | ft
+get-command -Module ActiveDirectory
+get-adforest
+Get-ADDomain
+Get-ADUser -Filter * 
+get-aduser -filter * | ft
+get-aduser -filter * | Select-Object -Property Name,SamAccountName,Enabled,DistinguishedName
+whoami
+hostname
+get-aduser -filter * | Select-Object -Property Name,SamAccountName,Enabled,DistinguishedName
+get-aduser -Identity ida
+get-aduser -filter * | ft
+dsa.msc
+get-aduser -filter * -SearchBase 'ou=sales,dc=adatum,dc=com'
+get-aduser -filter * -SearchBase 'ou=sales,dc=adatum,dc=com' | ft
+get-aduser -filter * -SearchBase 'ou=sales,dc=adatum,dc=com' -SearchScope OneLevel
+get-aduser -filter * -SearchBase 'ou=sales,dc=adatum,dc=com' -SearchScope OneLevel | ft
+get-aduser -filter * -SearchBase 'ou=sales,dc=adatum,dc=com' -SearchScope OneLevel | Where-Object { $_.Givenname -like 'l*' }
+get-aduser -filter * -SearchBase 'ou=sales,dc=adatum,dc=com' -SearchScope OneLevel | Where-Object { $_.Givenname -like 'l*' } | ft
+get-aduser -filter {  givenname -like 'l*' } -SearchBase 'ou=sales,dc=adatum,dc=com' -SearchScope OneLevel | ft
+Get-ADUser -Identity lucy
+Set-ADUser -Identity Lucy -Surname 'Davey-Obermaier' -Description 'Nix wichtiges ...' -Department 'OnlineSales'
+Get-aduser -Identity lucy
+Get-aduser -Identity lucy | Format-List -Property UserPrincipalName, Surname, Description, Department
+Get-aduser -Identity lucy -Properties Description,Department | Format-List -Property UserPrincipalName, Surname, Description, Department
+Get-aduser -Identity lucy -Properties De*
+Get-aduser -Identity lucy -Properties De* | fl name,description,department
+Get-aduser -Identity lucy -Properties * | fl name,description,department
+Disable-ADAccount -Identity lucy
+Get-aduser -Identity lucy -Properties *
+Get-aduser -Identity lucy
+Get-ADOrganizationalUnit -Filter *
+# Get-ADOrganizationalUnit -Filter *
+$ou = 'OU=Sales,DC=Adatum,DC=com'
+New-ADUser -Path $ou -Name 'Jane Marple' -SamAccountName Jane -GivenName 'Jane' -Surname 'Marple' -UserPrincipalName 'jane@adatum.com'
+Get-ADUser -Identity jane
+Enable-ADAccount -Identity Jane
+$password = ConvertTo-SecureString -String 'Pa$$w0rd'
+$password
+ConvertFrom-SecureString -SecureString $password
+enable-ADAccount -Identity Jane
+Get-ADUser -Identity jane
+New-ADUser -Path $ou -Name 'Phryne Fisher' -GivenName 'Phryne' -Surname 'Fisher' -SamAccountName 'Phryne' -UserPrincipalName 'phryne@adatum.com' -AccountPassword $password -Enabled $true
+Get-ADUser -identity phryne
+Get-Command -name *-adgroup*
+New-ADOrganizationalUnit -Path 'dc=adatum,dc=com' -Name 'PSKurs'
+get-adorganizationalUnit -Identity PSKurs
+get-adorganizationalUnit -Identity 'ou=pskurs,dc=adatum,dc=com'
+# get-adorganizationalUnit -Identity 'ou=pskurs,dc=adatum,dc=com'
+New-ADGroup -Path 'ou=PSKurs,dc=adatum,dc=com' -Name 'Detectives' -GroupCategory Security -GroupScope Universal -SamAccountName 'Detectives'
+get-adgroup -Identity Detectives
+Add-ADGroupMember -Identity Detectives -Members Jane,Phryne
+Get-ADGroupMember -Identity Detectives
+Get-ADUser -Identity jane -Properties memberof
+Get-ADPrincipalGroupMembership -Identity Jane
+Get-ADUser -identity jane -Properties *
+set-aduser -Identity Jane -EmployeeID 'P01' -EmployeeNumber 1 -EmployeeType 'Prokuristin'
+$htUserAttributes = @{ EmployeeType='Prokuristin'; EmployeeNumber=1; EmployeeID='P01' }
+Set-ADUser -Identity Jane -Add $htUserAttributes
+Get-ADUser -Identity Jane -Properties *
+Get-Command -noun adcomputer
+Get-Command -noun adaccount
+Test-ComputerSecureChannel
+Test-ComputerSecureChannel -Repair -Credential (Get-Credential)
+cd \
+$credential = Get-Credential -Message 'Bitte Pwd eingeben' -UserName 'ADATUM\Administrator'
+$credential
+$credential.GetNetworkCredential()
+Search-ADAccount -LockedOut
+Search-ADAccount -AccountInactive
+Get-Command -Module ActiveDirectory -name *restor*
+Get-Command -Module ActiveDirectory -name *rec*
+Get-Command -Module ActiveDirectory -name *bin*
+dsa.msc
+Get-ADObject -IncludeDeletedObjects
+Restore-ADObject -Identity 'CN=PSDemoShare\0ADEL:b88bbe92-5d71-4238-8b07-4e113c188da2,CN=Deleted Objects,DC=Adatum,DC=com'
+Get-ADObject -Filter * -SearchBase 'cn=domain controllers,dc=adatum,dc=com'
+Get-ADObject -Filter * -SearchBase 'ou=domain controllers,dc=adatum,dc=com'
+Get-ADUser -Filter * -SearchBase 'ou=Sales,dc=adatum,dc=com'
+Get-ADUser -Filter * -SearchBase 'ou=Sales,dc=adatum,dc=com' | Add-ADGroupMember -Identity PSKurs
+get-help Add-ADGroupMember -ShowWindow
+Get-ADUser -Filter * -SearchBase 'ou=Sales,dc=adatum,dc=com' | ForEach-Object -Process { Add-ADGroupMember -Identity PSKurs -Members $_ }
+Get-ADUser -Filter * -SearchBase 'ou=Sales,dc=adatum,dc=com' | ForEach-Object -Process { Add-ADGroupMember -Identity PSKurs -Members $_.samAccountName }
+get-adgroup -Identity pskurs
+Get-ADUser -Filter * -SearchBase 'ou=Sales,dc=adatum,dc=com' | ForEach-Object -Process { Add-ADGroupMember -Identity Detectives -Members $_ }
+Get-ADGroupMember -Identity Detectives
+Get-ADUser -filter * -searchbase 'ou=Managers,dc=adatum,dc=com' -Properties Department,Jobtitle
+get-aduser  -filter * -SearchBase 'ou=Managers,dc=adatum,dc=com' | Select-Object -Property samaccountname,name,distinguishedname,jobtitle,department,sid
+get-aduser  -filter * -SearchBase 'ou=Managers,dc=adatum,dc=com' | Select-Object -Property samaccountname,name,distinguishedname,jobtitle,department,sid | ft
+get-aduser  -filter * -SearchBase 'ou=Managers,dc=adatum,dc=com' -Properties department,jobtitle | Select-Object -Property samaccountname,name,distinguishedname,jobtitle,department,sid | ft
+dsamsc
+dsa.msc
+get-aduser  -filter * -SearchBase 'ou=Managers,dc=adatum,dc=com' -Properties department,title | Select-Object -Property samaccountname,name,distinguishedname,title,department,sid | ft
+# get-aduser  -filter * -SearchBase 'ou=Managers,dc=adatum,dc=com' -Properties department,title | Select-Object -Property samaccountname,name,distinguishedname,title,department,sid 
+winget install microsoft.visualstudiocode
+winget install git.git
+cd \
+git clone https://github.com/distcode/pscourse-cw24
+cd .\pscourse-cw24\
+ls
+code
+cd \
+$c * 2
+$myFile = Get-ChildItem C:\Windows\win.ini
+$myFile.Lenght
+$myArr = @('Graz','Linz','Wien')
+$myArr[2]
+$myArr[3]
+$myArr[888]
+Set-StrictMode -Version 1
+$c * 2
+$myFile.Lenght
+$myArr[888]
+Set-StrictMode -Version 2
+$myFile.Lenght
+$myArr[888]
+Set-StrictMode -Version latest
+$myArr[888]
+Get-ChildItem hklm:\
+Get-ChildItem hklm:\ -ErrorAction SilentlyContinue
+$Error[0]
+4 / 0
+$Error[0]
+Get-Error
+Get-ChildItem hklm:\ -ErrorAction Ignore
+$Error[0]
+$error.Clear()
+$Error[0]
+set-StrictMode -Off
+$Error[0]
+$error.Clear()
+$Error[0]
+Get-ChildItem hklm:\ -ErrorAction Stop
+$ErrorActionPreference
+get-aduser -Identity Harry
+get-aduser -Identity Harrie
+cd .\pscourse-cw24\PSScripts\
+.\Script11.ps1
+Write-Hello
+. .\Script11.ps1
+Write-Hello
+ls
+Import-Module -Name .\PSKursModule\PSKursModule.psm1
+Get-Command -Module PSKursModule
+write-hello
+test-foo
+Get-Weather
+Get-Weather -City Graz
+Remove-Module PSKursModule
+Get-Module
+Get-Module -ListAvailable
+Get-Module
+Get-Weather -City Graz
+Get-Module
+cd ..
+git status
+git add -A
+git commit -m 'Initially Added.'
+git config --global user.email office@dist.at
+git config --global user.name distcode
+git commit -m 'Initially Added.'
+git status
+git push origin main
+cd \
+winget search mozilla
+Get-Command -noun module
+Get-Command -noun psresource
+Find-PSResource
+Find-PSResource -Name *
+Get-Command -noun psresource
+Find-PSResource -name storage
+Find-PSResource -name *storage*
+Find-PSResource -name *storage
+# Save-Module -Path 
+md Temp
+cd .\Temp\
+ls
+cd 1
+cd .\1.0.1\
+ls
+code .
+cd \
+cd ..
+cd .\Temp\
+Get-Module
+ls
+get-module
+Get-Module -ListAvailable
+Get-PSRepository
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+Get-PSRepository
+get-command -Module PackageManagement
+Get-PackageProvider -ListAvailable
+Get-PSRepository
+Find-PSResource 
+Find-PSResource -Name *
+cd \
+Get-Process w* -ComputerName lon-dc1
+Invoke-Command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1
+invoke-command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1
+get-process w* | Get-Member
+invoke-command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1 | Get-Member
+invoke-command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1,lon-srv1
+invoke-command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1,lon-svr1
+invoke-command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1,lon-svr1,lon-cl1
+Enable-PSRemoting
+invoke-command -ScriptBlock { Get-Process w* } -ComputerName lon-dc1,lon-svr1,lon-cl1
+C:\pscourse-cw24\PSScripts\Script01.ps1
+Invoke-Command -FilePath C:\pscourse-cw24\PSScripts\Script01.ps1 -ComputerName lon-dc1
+Invoke-Command -FilePath C:\pscourse-cw24\PSScripts\Script01.ps1 -ComputerName lon-dc1,lon-svr1
+Invoke-Command -ScriptBlock { $a = Get-Random -Minimum 1 -Maximum 10 } -ComputerName lon-dc1
+Invoke-Command -ScriptBlock { $a } -ComputerName lon-dc1
+$sessDC1 = New-PSSession -ComputerName lon-dc1
+$sessDC1
+Invoke-Command -ScriptBlock { $a = Get-Random -Minimum 1 -Maximum 10 } -Session $sessDC1
+Invoke-Command -ScriptBlock { $a } -Session $sessDC1
+Remove-PSSession -Session $sessDC1
+$sessDC1
+$sessAll = New-PSSession -ComputerName lon-dc1,lon-svr1
+$sessAll
+Invoke-Command -ScriptBlock { $a = Get-Random -Minimum 1 -Maximum 10 } -Session $sessAll
+Invoke-Command -ScriptBlock { "Host $(hostname): $a" } -Session $sessDC1
+Invoke-Command -ScriptBlock { "Host $(hostname): $a" } -Session $sessAll
+Remove-PSSession -Session $sessAll
+Enter-PSSession -ComputerName lon-dc1
+cd \
+ls
+cd env:
+ls
+write-hello
+exit
+Enter-PSSession -ComputerName lon-dc1
+exit
+$sessDC1 = New-PSSession -ComputerName lon-dc1
+Enter-PSSession -Session $sessDC1
+cd \
+$a = 'Servus!'
+exit
+Enter-PSSession -Session $sessDC1
+$a
+exit
+Enter-PSSession -Session $sessDC1
+$a
+Enter-PSSession -ComputerName lon-svr1
+exit
+Invoke-RestMethod -Uri 'https://wttr.in/Vienna'
+Invoke-RestMethod -Uri 'https://wttr.in/:help'
+Invoke-RestMethod -Uri 'https://wttr.in/moon'
+Invoke-RestMethod -Uri 'https://wttr.in/:vienna?1'`
+
+Invoke-RestMethod -Uri 'https://wttr.in/Linz'`
+
+Invoke-RestMethod -Uri 'https://wttr.in/:help'
+Get-Command -noun job
+Start-Job -ScriptBlock { Get-ChildItem c:\ -Recurse | Where-Object { $_.Length -gt 100MB } } -Name LargeFiles
+Get-Job
+Receive-Job -Id 15 -Keep 
+Get-Job
+Receive-Job -Id 15 -Keep | Get-Member
+Get-Command -noun job
+exit
+Get-Job
+Get-SmbShare
+invoke-command -ScriptBlock { Get-SmbShare } -ComputerName lon-dc1
+invoke-command -ScriptBlock { Get-SmbShare } -ComputerName lon-dc1 | Get-Member
+Get-CimInstance -ClassName Win32_PhysicalMemory
+Get-CimInstance -ClassName Win32_PhysicalMemory -CimSession lon-dc1 | ft
+Get-SmbShare -CimSession lon-dc1
+Get-Module -ListAvailable -Name DHCPServer
+$dc1session = New-PSSession -ComputerName lon-dc1
+import-module -name DHCPServer -PSSession $dc1session
+Get-Module
+invoke-command -computername lon-dc1 -ScriptBlock { Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force }
+Get-ExecutionPolicy
+$sessAll  = New-PSSession -ComputerName lon-cl1,lon-dc1,lon-svr1
+$sessAll | ForEach-Object { Invoke-Command -Session $_ -ScriptBlock { Get-Process w* } } -Parallel
+$sessAll | ForEach-Object -Parallel { Invoke-Command -Session $_ -ScriptBlock { Get-Process w* } } -ThrottleLimit 5
+get-childitem C:\Windows\ -Directory | select -f 10
+get-childitem C:\Windows\  
+get-childitem C:\Windows\  -Directory
+get-childitem C:\Windows\ -File | Measure-Object -Property Length -Sum
+get-childitem c:\windows\ -Directory | Get-ChildItem $_.fullname -File | Measure-Object -Property Length -Sum
+get-childitem c:\windows\ -Directory | ForEach-Object { Get-ChildItem $_.fullname -File  | Measure-Object -Property Length -Sum }
+get-childitem c:\windows\ -Directory | ForEach-Object { $DirSize = Get-ChildItem $_.fullname -File  | Measure-Object -Property Length -Sum ; "$($DirSize.Sum) - $($_.Fullname)" }
+get-childitem c:\windows\ -Directory -Recurse | ForEach-Object { $DirSize = Get-ChildItem $_.fullname -File  | Measure-Object -Property Length -Sum ; "$($DirSize.Sum) - $($_.Fullname)" }
+# get-childitem c:\windows\ -Directory -Recurse | ForEach-Object { $DirSize = Get-ChildItem $_.fullname -File  | Measure-Object -Property Length -Sum ; "$($DirSize.Sum) - $($_.Fullname)" }
+invoke-command -ComputerName lon-svr1 -ScriptBlock { Get-ChildItem C:\Windows\ -Recurse } 
+invoke-command -ComputerName lon-svr1 -ScriptBlock { Start-Job -ScriptBlock { Get-ChildItem C:\Windows\ -Recurse } } 
+invoke-command -ComputerName lon-svr1 -ScriptBlock { Get-Job } 
+invoke-command -ComputerName lon-svr1 -ScriptBlock { Start-Job -ScriptBlock { Get-ChildItem C:\Windows\ -Recurse } } -AsJob
+Get-Job
+receive-Job -Id 16 -Keep 
+get-job
+get-job -IncludeChildJob
+invoke-command -ComputerName lon-svr1 -ScriptBlock { Get-ChildItem C:\Windows\ -Recurse  } -AsJob
+get-job
+get-job -id 18 
+get-job -id 18  | Wait-Job
+Get-Job -id 18 
+get-job -id 18  | Wait-Job
+get-command -noun scheduledjob
+get-command -noun scheduledtask
+Get-ScheduledTask
+get-command -noun scheduledjob
+get-command New-JobTrigger
+get-command New-JobTrigger
+Import-Module -Name PSScheduledJob
+$JobTrigger = New-JobTrigger -Daily -At (Get-Date).AddMinutes(7)
+# $JobOptions = Ad
+get-command -name *option*
+$JobTrigger = New-JobTrigger -Daily -At (Get-Date).AddMinutes(7)
+$JobOptions = New-ScheduledJobOption -RequireNetwork 
+Register-ScheduledJob -Name 'PSKursJob' -Trigger $JobTrigger -ScheduledJobOption $JobOptions -ScriptBlock { Invoke-RestMethod -Uri 'https://wttr.in/Graz' }
+Get-ScheduledJob
+Get-Job
+Get-Date
+Get-ScheduledJob
+Get-Job
+Receive-Job -id 1 -Keep
+Get-Job
+Get-Job
+Receive-Job -id 1
+Get-Job
+Receive-Job -id 1
+cd .\pscourse-cw24\
+ls
+git  status
+git pull origin main
+git status
+ls
+exit
+Copy-Item (Get-PSReadLineOption).HistorySavePath -Destination .\history.txt
