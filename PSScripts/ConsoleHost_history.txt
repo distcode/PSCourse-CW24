@@ -1,0 +1,982 @@
+winget -v
+winget upgrade
+winget
+winget install microsoft.powertoys
+winget install --id Microsoft.PowerShell
+exit
+winget install --id Microsoft.Powershell
+winget install --id Microsoft.PowerShell
+cd \
+$PSVersionTable
+winget search powershell
+winget show --id microsoft.powershell
+winget upgrade
+winget upgrade --All
+winget help install
+winget install -h
+$PSHome
+pwsh
+$PSHOME
+exit
+# \ | () [] {} $ . - ` ' " 
+cd \
+ipconfig
+# cmdlets    
+# verb-noun
+# Add-VpnConnection ; Get-SmbShare ; Stop-Service ; Restart-Computer
+Get-Verb
+Set-PSReadLineOption -PredictionSource None
+Get-Command 
+Get-Command -Verb Write
+get-command -Noun Host
+Get-Command -Module Storage
+Get-Command -CommandType cmdlinetool
+Get-Command Write-Host
+Get-Command notepad.exe
+Clear-Host
+Update-Help 
+md Temp
+Save-Help -DestinationPath .\Temp\
+Get-Help Get-Command
+Get-Help Get-Command -Detailed
+Get-Help Get-Command -ShowWindow
+get-help Write-Host -ShowWindow
+get-help Get-Command -Online 
+Get-Help about_*
+get-help about_using
+get-help about_using -ShowWindow
+Get-Command *command
+Show-Command
+Write-Host -BackgroundColor darkgreen -ForegroundColor white -Object (Guten Tag!!!)
+Write-Host -BackgroundColor darkgreen -ForegroundColor white -Object ("Guten Tag!!!")
+write-host -BackgroundColor DarkRed -ForegroundColor White -Object "Servus !!!"
+Get-ChildItem 
+dir
+dir /s
+# Alias
+Get-Alias
+New-Alias -Name sos -Value Get-Help
+sos Write-Host
+get-command -noun Alias
+Get-Command -nouna alias
+Get-Command -noun alias
+get-alias
+New-Alias -Name sos -Value Get-Help
+Set-Alias -Name sos -Value Update-Help
+Get-Alias -Name sos
+Remove-Alias sos
+Get-Alias -Name sos
+Set-Alias -Name sos -Value Get-Help
+Get-Alias -Name sos
+Get-Command -noun service
+Get-Command -Name *host*
+Get-Verb -Verb get
+Get-Verb -Verb get,set
+Get-Verb -Verb ?et
+Get-Service 
+Get-Service v*
+Get-Verb -Verb ?et
+g-verb
+get-alias
+$pwd
+cd .\Temp\
+$pwd
+cd ..
+cls
+get-help Get-WinEvent
+Get-Help Get-EventLog
+Get-EventLog
+Get-EventLog -LogName System -Newest 5
+Get-EventLog System -Newest 5
+get-help Get-Command
+get-help -Name Write-Hoste -noun Host
+get-help -Name Write-Hose -noun Host
+get-help -Name Write-Host -noun Host
+Get-Command -name Write-Host -noun Host
+get-help Get-Command
+Get-Help Get-EventLog
+Get-EventLog -LogName System -InstanceId 1073748860
+Get-EventLog -LogName System -InstanceId 1073748860 -Newest 5
+Get-EventLog System 1073748860 -Newest 5
+Get-EventLog 1073748860 system -Newest 5
+Get-EventLog -InstanceId 1073748860 -LogName system -Newest 5
+$xy = 123
+$xy
+$xy + 100
+$xy - 100
+$xy * 100
+$xy / 100
+$xy % 100
+$xy = 876
+$xy
+$b = 'PSKurs'
+$b
+$b + $xy
+$xy + $b
+$xy.GetType()
+$b.GetType()
+$b = 543
+$b
+$b.GetType()
+[int]$b = 542
+$b.GetType()
+$b = 'AnyText'
+get-command -Noun Variable
+Clear-Variable $b
+Clear-Variable -Name b
+$b
+Remove-Variable -Name b
+Get-Variable
+Get-History
+Invoke-History  -Id 16
+set-psReadLineOption -PredictionSource None
+# [bool] [byte] [char] [int] [long] [single] [double] [string] [...]
+Get-Process
+Get-Process POWERPNT
+$myProcess = Get-Process POWERPNT
+$myProcess
+$myProcess.GetType()
+$myProcess.Id
+$myProcess.ProcessName
+$myProcess | Get-Member
+$myProcess.Id
+$myProcess.kill
+$myProcess.kill()
+$myProcess
+notepad++
+Get-Process notepad
+(Get-Process notepad).Id
+(Get-Process notepad).Kill()
+notepad
+(Get-Process notepad)
+(Get-Process notepad).Id
+(Get-Process notepad).Kill()
+# Array
+$myArrA = 'White','Red','Green','Blue'
+$myArrA
+$myArrA.GetType()
+$myArrA = $myArrA + 'Black'
+$myArrA
+$myArrA += 'Gray'
+$myArrA
+$myArra[2]
+$myArrA.Count
+$myArrA[$myArrA.Count - 1]
+$myArrA[-1]
+$myArrA[-2]
+$myArrA[-3]
+$myArrA[9]
+2..9
+$myArrA[1..3]
+$myArrA[-3..-1]
+3..1
+3..1
+$myArrA
+$myArrA -contains 'Green'
+$myArrA -contains 'Cyan'
+$myArrA.Contains('green')
+$myArrA -contains 'green'
+$myArrA -ccontains 'green'
+$myArrA -icontains 'green'
+$myArrA -contains 'green'
+'Blue' -in $myArrA
+notepad
+Get-Process
+(Get-Process).ProcessName
+(Get-Process).ProcessName.GetType()
+(Get-Process).ProcessName -contains 'notepad'
+(Get-Process).ProcessName -contains 'notepad++'
+(Get-ChildItem -Directory)
+(Get-ChildItem -Directory).Name
+(Get-ChildItem -Directory).Name -contains 'Temp'
+(Get-ChildItem -Directory).Name -contains 'Pro*'
+$myArrA.IndexOf('Blue')
+$myArrA.Contains
+$myProcesses = Get-Process
+$myProcess
+$myProcesses
+$myProcesses.GetType()
+$myProcesses[10]
+$myProcesses[10].Id
+# Hash Table
+$ht = @{ Marke='Mustang'; Farbe='Black'; kwh=180 }
+$ht
+$ht.Marke
+$ht['Marke']
+$ht = $ht + @{ Coupe=$true }
+$ht
+$ht.kwh = 240
+$ht
+$ht.Remove('kwh')
+$ht
+$ht1 = @{ Marke='Fiat'; Farbe='Rot'; Aluflegen=$true }
+$ht2 = @{ Marke='Audi'; Farbe='Dunkelblau'; Alufelgen=$true; SUV=$true }
+$ht3 = @{ Marke='VW'; Farbe='Silber'; Alufelgen=$false; Van=$true }
+$myCars = @()
+$myCars.GetType()
+$myCars += $ht1
+$myCars
+$myCars.GetType()
+$myCars += $ht2
+$myCars += $ht3
+$myCars
+$myCars[1]
+Get-Process
+Get-Process | Sort-Object -Property Id
+Get-Process | Sort-Object -Property Id -Descending
+Get-Process | Get-Member
+Get-Process
+Get-Process | Sort-Object -Property ProcessName,PM
+Get-Process | Sort-Object -Property ProcessName | Sort-Object -Property PM -Descending
+Get-Help Sort-Object -ShowWindow
+Get-Help Sort-Object -online
+$htSortProcessNameAsc = @{ Expression = "ProcessName"; Descending=$false }
+$htSortPM = @{ Expression= "PM"; Descending=$true }
+Get-Process | Sort-Object -Property $htSortProcessNameAsc,$htSortPM
+Get-Command -noun Object
+Get-ChildItem C:\Windows\ -File 
+Get-ChildItem C:\Windows\ -File | Measure-Object
+Get-ChildItem C:\Windows\ -File | Measure-Object -Property Length -Sum
+Get-ChildItem C:\Windows\ -File | Measure-Object -Property Length -Sum -Maximum -Minimum -Average -StandardDeviation
+Get-ChildItem C:\Windows\ -File | Measure-Object -Property Length -Sum
+$result = Get-ChildItem C:\Windows\ -File | Measure-Object -Property Length -Sum
+$result
+$result | Get-Member
+$result.Sum
+$result / 1024 / 1024
+$result.sum / 1024 / 1024
+$result.sum / 1MB
+1KB
+1MB`
+
+5MB
+5 MB
+1GB
+1TB
+1PB
+1EB
+Get-Process
+Get-Process | Get-Member
+Get-Process | Where-Object -FilterScript { PagedMemorySize64 >= 100MB }
+# Get-Process | Where-Object -FilterScript { $PSItem.PagedMemorySize64 >= 100MB }
+Get-Process | Get-Member
+Get-Process | Where-Object -FilterScript { $PSItem.PagedMemorySize64 -gt 100MB }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -eq 'msedge' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -eq 'MSEdge' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -ceq 'MSEdge' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -ieq 'MSEdge' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -ne 'svchost' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like 'w*' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like '???' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -notlike 'svchost' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -notlike 'vm*' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like '[dmp]*' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like '[m-p]*' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like 'w*' }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like 'w*' } | Where-Object { $PSItem.PagedMemorySize64 -gt 10MB }
+Get-Process | Where-Object -FilterScript { $PSItem.ProcessName -like 'w*' -and $PSItem.PagedMemorySize64 -gt 10MB }
+Get-Process | Where-Object { $PSItem.PagedMemorySize64 -gt 100MB }
+Get-Process | Where-Object { $_.PagedMemorySize64 -gt 100MB }
+Get-Process | Where { $_.PagedMemorySize64 -gt 100MB }
+Get-Process | ? { $_.PagedMemorySize64 -gt 100MB }
+Get-Process | ? PagedMemorySize64 -gt 100MB 
+Get-Process | ? PagedMemorySize64 -gt 100MB  -and Processname -like 'm*'
+Get-Process | ? PagedMemorySize64 -gt 100MB
+Get-Process | Where-Object { $_.PagedMemorySize64 -gt 100MB } | Get-Member
+Get-Process | Select-Object -First 5
+Get-Process | Select-Object -First 5 | Get-Member
+Get-Process | Measure-Object 
+Get-Process | Select-Object -First 5 | Measure-Object
+Get-Process | Select-Object -Last 3
+Get-Process | Select-Object -First 5 | Measure-Object
+Get-Process | Select-Object -First 5 
+Get-Process | Select-Object -First 5 -Skip 4
+Get-Process | Select-Object -Property ProcessName,Id,PagedMemorySize64
+Get-Process | Select-Object -Property ProcessName,Id,PagedMemorySize64 | Get-Member
+Get-Process | Select-Object -Property ProcessName,Id,PagedMemorySize64 | Where-Object { $_.PagedMemorySize64 -gt 10MB }
+# Get-Process | Select-Object -Property ProcessName,Id,PagedMemorySize64
+$htPMKB = @{ Name = 'PM-KB'; Expression= { $_.PagedMemorySize64 / 1KB } }
+Get-Process | Select-Object -Property ProcessName,Id,PagedMemorySize64,$htPMKB
+$htPMKB = @{ Name = 'PM-KB'; Expression= { [double]($_.PagedMemorySize64 / 1KB) } }
+Get-Process | Select-Object -Property ProcessName,Id,PagedMemorySize64,$htPMKB
+Get-Process | Select-Object -Property ProcessName,Id,CommittedByte,$htPMKB
+Get-Process | Select-Object -Property ProcessName,Id,CommittedBytes,$htPMKB
+Get-Process | gm
+Get-Process | Select-Object -Property ProcessName,Id,WorkingSet64,$htPMKB
+$htPMKB = @{ Name = 'PM-KB'; Expression= { $_.WorkingSet64 / 1KB } }
+Get-Process | Select-Object -Property ProcessName,Id,WorkingSet64,$htPMKB
+Get-Process | Select-Object -Property ProcessName,Id,WorkingSet64,$htPMKB | Get-Member
+Get-Process | Select-Object -Property ProcessName
+Get-Process | Select-Object -Property ProcessName -Unique
+Get-Command -noun object
+Get-Service
+Get-Service | Group-Object -Property Status
+(Get-Service | Group-Object -Property Status )[0].Group
+Get-Service | Group-Object -Property Status -NoElement 
+Get-Service | Group-Object -Property Status -AsHashTable
+Get-Service | Group-Object -Property Status -AsString
+Get-Service | Group-Object -Property Status 
+Get-ChildItem
+Get-ChildItem | Out-Host
+Get-ChildItem C:\Windows\ -File 
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Name,Length
+Get-ChildItem C:\Windows\ -File | Format-Table
+Get-ChildItem C:\Windows\ -File | Format-Table -Property Name,Length
+Get-ChildItem C:\Windows\ -File | Format-Table -Property Name,Length -HideTableHeaders 
+Get-Service
+Get-Service | Format-Table -Wrap
+Get-ChildItem C:\Windows\ -File 
+Get-ChildItem C:\Windows\ -File | Format-Table -Property Name,Length,Extension
+Get-ChildItem C:\Windows\ -File | Format-Table -Property Name,Length,Extension -GroupBy Extension
+Get-ChildItem C:\Windows\ -File | Sort-Object -Property Extension | Format-Table -Property Name,Length,Extension -GroupBy Extension
+Get-ChildItem C:\Windows\ -File | Format-List -Property Name,Length,Extension
+Get-ChildItem C:\Windows\ -File | Format-Wide -Property Name
+Get-ChildItem C:\Windows\ -File | Format-Wide -Property Name -Column 5
+Get-ChildItem C:\Windows\ -File | Format-List -Property Name,Length,Extension | Get-Member
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Name,length,Extension,BaseName
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Name,length,Extension,BaseName,Mode
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Name,length,Extension,BaseName,Mode | Format-List 
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Name,length,Extension,BaseName,Mode | Format-Table
+# Get-ItemPropertyValue -Path HKCU:\SOFTWARE\Microsoft\Clipboard\ -name enableclip
+ise
+ise
+ Get-ItemPropertyValue -Path HKCU:\SOFTWARE\Microsoft\Clipboard\ -name enableclipboardhistory
+Set-LocalGroup hkcu:
+Set-Location hkcu:
+cd .\SOFTWARE\Microsoft\Clipboard\
+ls
+New-ItemProperty -Path . -Name EnableClipboardHistory -PropertyType DWord -Value 1
+'abj' | Set-Clipboard
+c:
+Get-Service cbdhsvc
+Get-Service cbdhsvc | Start-Service
+Start-Service cbdhsvc_6f0c0
+Get-Service cbdhsvc | Start-Service
+Get-Service cbdhsvc
+Get-Service cbdhsvc*
+Get-Service cbdhsv*
+get-service abj
+Get-Service cbdhsvc
+services.msc
+Get-ItemPropertyValue -Path HKCU:\SOFTWARE\Microsoft\Clipboard\ -Name EnableClipboardHistory
+Get-PSReadLineOption
+regedit
+gpedit.msc
+get-help about_*
+get-help about_profiles -ShowWindow
+'Set-PSReadLineOption -PredictionSource None' | Set-Content -Path $HOME\Documents\PowerShell\Profile.ps1
+$myArrB = 'White'
+$myArrB += 'black'
+$myArrB
+shutdown -s -t 1800
+# Day 2
+get-alias
+New-Alias -Name np -Value Notepad.exe
+np
+Get-Servi
+Get-Service | Where-Object { $_.Status -eq 'Stopped' }
+Get-Service # | Where-Object { $PSItem.Status -eq 'Stopped' }
+(Get-Service ).GetType()
+(Get-Service ).count
+Get-Service i*,p*
+Get-Command -noun service
+get-help Set-Service
+services.msc
+get-help set-service -online
+Get-Service | Get-Member
+get-alias -Definition Get-Member
+Get-Service | Get-Member
+Get-Service | Get-Member -MemberType Properties
+Get-Service | Get-Member | Where-Object { $_.MemberType -eq 'Property' }
+Get-Service | Get-Member | Get-Member
+Get-Process | Sort-Object -Property WorkingSet -Descending 
+Get-Process | Sort-Object -Property WorkingSet -Descending | Select-Object -First 3
+Get-Process | Sort-Object -Property WorkingSet -Descending -Top 3
+Get-ChildItem C:\Windows\ -File
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Extension
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Extension -Unique
+Get-ChildItem C:\Windows\ -File | Select-Object -Property Extension,LastWriteTime -Unique
+Get-Command -noun *printer*
+Get-PrinterDriver
+Get-PrinterDriver -Name 'Microsoft Print To PDF'
+Get-PrinterDriver -Name 'Microsoft Print To PDF' | Get-Member
+Get-PrinterDriver -Name 'Microsoft Print To PDF' | Select-Object -Property Name,DependentFiles
+Get-PrinterDriver -Name 'Microsoft Print To PDF' | Select-Object -ExpandProperty DependentFiles
+Get-PrinterDriver -Name 'Microsoft Print To PDF' | Select-Object -ExpandProperty DependentFiles  -Property name
+(Get-PrinterDriver -Name 'Microsoft Print To PDF').DependentFiles
+Get-Volume
+Get-Volume | Select-Object -Property DriveLetter,SizeRemaining
+$htSizeGB = @{ Name='SizeGB'; Expression={ $PSItem.SizeRemaining / 1GB } }
+Get-Volume | Select-Object -Property DriveLetter,SizeRemaining,$htSizeGB
+Get-Volume | Format-Table -Property DriveLetter,SizeRemaining,$htSizeGB
+$htSizeGB = @{ Name='SizeGB'; Expression={ $PSItem.SizeRemaining / 1GB }; Format='n3' }
+Get-Volume | Format-Table -Property DriveLetter,SizeRemaining,$htSizeGB
+Get-Volume | Select-Object -Property DriveLetter,SizeRemaining,$htSizeGB
+$Cities = 'Graz'
+$Cities.GetType()
+$Cities += 'Linz'
+$Cities
+$Cities = @('Graz')
+$Cities.GetType()
+$Cities = @()
+$Cities.GetType()
+$Cities += 'Graz'
+$Cities += 'Linz'
+$Cities
+$Mitarbeiter = @{}
+$Mitarbeiter += @{ Name='Franz' }
+$Mitarbeiter
+ncpa.cpl
+ipconfig
+Get-NetIPAddress
+Get-NetIPAddress | Format-Table
+Get-NetIPAddress -AddressFamily IPv4
+Get-Command -noun netipaddress
+Get-NetIPAddres
+Get-NetIPAddress
+New-NetIPAddress -ifIndex 5 -IPAddress 10.202.0.100  -PrefixLength 24 -DefaultGateway 10.202.0.1
+get-netipaddress
+Remove-NetIPAddress -ifIndex 5 -IPAddress 10.202.0.100 
+Get-NetAdapter
+Resolve-DnsName -Name 'www.etc.at'
+get-command -noun *dns*
+Get-NetFirewallProfile
+Set-NetFirewallProfile -Profile Private -Enabled False
+Set-NetFirewallProfile -All -Enabled False
+Set-NetFirewallProfile -All -Enabled True
+Get-NetFirewallRule
+Get-NetFirewallRule < ft
+Get-NetFirewallRule | ft
+netsh
+Get-WindowsFeature
+Get-VM
+Start-VM -Name Lon-router
+Get-VM
+Get-VM | Where-Object { $_.State -ne 'Running' } | Start-VM
+get-vm
+Get-Module -ListAvailable
+Get-Command -Module DnsClient
+whoami
+ipconfig
+'Heute hat es 22 Grad Celsius und der Himmel ist bewölkt.'
+$temperatur = 22
+$bedeckung = 'bewölkt'
+'Heute hat es ' + $temperatur + ' Grad Celsius und der Himmel ist ' + $bedeckung '.'
+'Heute hat es ' + $temperatur + ' Grad Celsius und der Himmel ist ' + $bedeckung + '.'
+"Heute hat es $temperatur Grad Celsius und der Himmel ist $bedeckung."
+'Heute hat es $temperatur Grad Celsius und der Himmel ist $bedeckung.'
+"Heute hat es $temperatur Grad Celsius und der Himmel ist $bedeckung. Diese Info kostet uns: 100 $"
+"Heute hat es $temperaturix Grad Celsius und der Himmel ist $bedeckung."
+"Heute hat es $temperatur Grad Celsius und der Himmel ist $bedeckung."
+"In der Variable $temperatur ist gerade der Wert $temperatur gespeichert."
+"In der Variable `$temperatur ist gerade der Wert $temperatur gespeichert."
+"In der Variable `$temperatur ist gerade der Wert $temperatur gespeichert.`a"
+"In der Variable `$temperatur ist `ngerade der Wert $temperatur gespeichert."
+"In der Variable `$temperatur ist `tgerade der Wert $temperatur gespeichert."
+"In der Variable `$temperatur ist `cgerade der Wert $temperatur gespeichert."
+"In der Variable `$temperatur ist `rgerade der Wert $temperatur gespeichert."
+1..1000 | "`r$_"
+1..1000 | Write-Host  "`r$_" -NoNewline
+1..1000 | Write-Host  "`r$($_)" -NoNewline
+1..1000 | % { Write-Host  "`r$($_)" -NoNewline }
+1..100000 | % { Write-Host  "`r$($_)" -NoNewline }
+"In der Variable `$temperatur ist gerade der Wert $temperatur gespeichert."
+$htWetter = @{ temperatur=22; bedeckung='bewölkt' }
+$htWetter
+"Heute hat es $htWetter.temperatur Grad Celsius und der Himmel ist $htWetter.bedeckung."
+#"Heute hat es $temperatur Grad Celsius und der Himmel ist $bedeckung."
+$htWetter.ToString()
+$htWetter.temperatur.ToString()
+"Heute hat es $($htWetter.temperatur) Grad Celsius und der Himmel ist $($htWetter.bedeckung)."
+'Heute hat es $($htWetter.temperatur) Grad Celsius und der Himmel ist $($htWetter.bedeckung).'
+1..100000 | ForEach-Object -Begin { Write-Host 'Counter' } -Process { Write-Host  "`r$($_)" -NoNewline -ForegroundColor Magenta } -End { Write-Host 'Have fun ...' }
+1..10000 | ForEach-Object -Begin { Write-Host 'Counter' } -Process { Write-Host  "`r$($_)" -NoNewline -ForegroundColor Magenta } -End { Write-Host '`nHave fun ...' }
+1..10000 | ForEach-Object -Begin { Write-Host 'Counter' } -Process { Write-Host  "`r$($_)" -NoNewline -ForegroundColor Magenta } -End { Write-Host "`nHave fun ..." }
+(Get-PrinterDriver -Name 'Microsoft Print To PDF').DependentFiles
+Get-PrinterDriver -Name 'Microsoft Print To PDF' | Select-Object -ExpandProperty DependentFiles
+Get-PrinterDriver | ForEach-Object -Process { "Name: $($_.Name)"; $_.DependentFiles; " " }
+# Get-PrinterDriver | ForEach-Object -Process { "Name: $($_.Name)"; $_.DependentFiles; " " }
+Get-Date
+(Get-Date).GetType()
+(Get-Date).ToShortDateString()
+(Get-Date).ToLongDateString()
+(Get-Date).ToshortTimeString()
+(Get-Date).ToLongTimeString()
+(Get-Date).ToString()
+(Get-Date).ToString('d-MMMM-yyyy')
+(Get-Date).ToString('ddd ,d-MMMM-yyyy')
+(Get-Date).ToString('dd ,d-MMMM-yyyy')
+(Get-Date).ToString('d-MMMM-yy')
+(Get-Date).ToString('d-MMMM-yyyy gg')
+(Get-Date).ToString('hh:mm')
+(Get-Date).ToString('HH:mm')
+(Get-Date).ToString('hh:mm a')
+(Get-Date).ToString('hh:mm:ss,ffffff')
+(Get-Date).ToString('hh:mm:ss,ffffff tt')
+(Get-Date).ToString('hh:mm:ss,ffffff tt zz')
+(Get-Date).ToString('hh:mm:ss,ffffff tt zzzz')
+Get-Date -Format 'hh:mm:ss tt'
+$temperatur
+"Heute, am  $((Get-Date).tostring('d. M. yyyy')) hat es $temperatur Grad Celsius und der Himmel ist $bedeckung."
+"Heute, am  $((Get-Date).tostring('d. M. yyyy')), hat es $temperatur Grad Celsius und der Himmel ist $bedeckung."
+"Heute, am  {0}, hat es {1} Grad Celsius und der Himmel ist {2}." -f (Get-Date),$temperatur,$bedeckung 
+"Heute, am  {0}, hat es {1:n1} Grad Celsius und der Himmel ist {2}." -f (Get-Date),$temperatur,$bedeckung 
+"Heute, am  {0}, hat es {1:p1} Grad Celsius und der Himmel ist {2}." -f (Get-Date),$temperatur,$bedeckung 
+"Heute, am  {0}, hat es {1:d4} Grad Celsius und der Himmel ist {2}." -f (Get-Date),$temperatur,$bedeckung 
+"Heute, am  {0}, hat es {1:c2} Grad Celsius und der Himmel ist {2}." -f (Get-Date),$temperatur,$bedeckung 
+"Heute, am  {0:d. M. yyyy}, hat es {1:n1} Grad Celsius und der Himmel ist {2}." -f (Get-Date),$temperatur,$bedeckung 
+Get-ChildItem C:\Windows\ -File
+Get-ChildItem C:\Windows\ -File | Where-Object { $_.LastWriteTime -eq '03.06.2026' }
+Get-ChildItem C:\Windows\ -File
+Get-ChildItem C:\Windows\ -File | Where-Object { $_.LastWriteTime.tostring() -eq '03.06.2026' }
+$date = Get-Date -Year 2026 -Month 6 -Day 3
+$date.GetType()
+$date
+$date = Get-Date -Year 2026 -Month 6 -Day 3 
+$date.date
+$date = $date.date
+$date
+Get-ChildItem C:\Windows\ -File | Where-Object { $_.LastWriteTime.Date -eq $date }
+Show-EventLog
+Show-Eventlog
+Get-EventLog -List 
+get-eventlog -LogName System -Newest 5
+get-eventlog -LogName System -After (Get-Date).Date
+New-EventLog -LogName 'PSKurs' -Source Backup,Maintenance,Deployment,ConfigMgmt 
+get-eventlog -List
+Limit-EventLog -LogName PSKurs -MaximumSize  25MB -OverflowAction OverwriteAsNeeded
+get-eventlog -List
+Write-EventLog -LogName PSKurs -Message 'First Event here!!!' -Source Deployment -EntryType Information -EventId 1
+get-eventlog -LogName PSKurs
+Show-EventLog
+exit
+exit
+get-eventlog
+Stop-Computer
+get-command Get-NetIPAddress, Get-NetIPConfiguration
+Get-NetIPAddress
+Get-NetIPConfiguration
+Get-NetIPConfiguration  -All
+(Get-NetIPConfiguration).GetType()
+Get-NetIPConfiguration | Get-Member
+# Day 3
+Get-Command -verb get,set
+Get-ChildItem C:\Windows\ -File 
+$result = Get-ChildItem C:\Windows\ -File -Recurse
+$result
+$result | Measure-Object -Property Length -Maximum -Average
+$result | Measure-Object -Property Length -Maximum -Average -Sum
+Get-ChildItem C:\Windows\System32\ | Format-Table -Property Extension
+Get-ChildItem C:\Windows\System32\ | Select-Object -Property Extension -Unique | Format-Wide -Column 5
+Get-SmbShare -Name Admin$
+Get-SmbShare -Name Admin$ | Get-Member
+Get-SmbShare -Name Admin$ | Format-List -Property *
+Get-SmbShare -Name Admin$ | Format-List -Property S*
+Get-Host
+Get-command -name *host*
+Get-ComputerInfo
+Get-ChildItem 'C:\Program Files\' -file -Recurse | Where-Object { $_.Length -gt 1MB }
+# Get-ChildItem 'C:\Program Files\' -file -Recurse | Where-Object { $_.Length -gt 1MB }
+$htLengthMB = @{ Name='LengthMB'; Expression= { $PSItem.Length / 1MB } } 
+Get-ChildItem 'C:\Program Files\' -file -Recurse | Where-Object { $_.Length -gt 1MB } | Format-Table -Property Name,$htLengthMB
+$htLengthMB
+Get-ChildItem 'C:\Program Files\' -file -Recurse | Where-Object { $_.Length -gt 1MB } | Format-Table -Property Name,$htLengthMB
+$a = "234"
+$a * 2
+[int]$a
+[int]$a * 2
+$a.ToInt16()
+$a.ToInt32()
+$a = "234MB"
+[int]$a
+$a = "234 MB"
+[int]$a
+(Get-Date) | Get-Member -MemberType Methods
+(Get-Date).AddDays(1)
+(Get-Date).AddDays(-1)
+get-eventlog -LogName Application -after (get-date).AddDays(-1).date -Before (get-date).Date 
+Get-WinEvent
+Get-WinEvent -ListLog *
+Get-WinEvent -ListLog *group*
+Get-WinEvent -LogName 'Microsoft-Windows-GroupPolicy/Operational'
+Get-WinEvent -LogName 'Microsoft-Windows-GroupPolicy/Operational' -MaxEvents 10
+Get-ChildItem
+Get-Command -noun item
+New-Item -Path c:\ -Name PSFiles -ItemType Directory 
+Set-Location .\PSFiles\
+get-alias -Definition New-Item
+Get-Alias md
+Get-Command -name mkdir
+(Get-Command -name mkdir ).Definition
+get-alias cd
+Get-Volume
+Set-Location d:
+Set-Location C:\Windows\System32\
+d:
+Get-Command d:
+(Get-Command d:).DefaultParameterSet
+(Get-Command d:).Definition
+c:
+cd \
+cd .\PSFiles\
+Copy-Item -Path C:\Windows\*.log -Destination C:\PSFiles\
+Get-ChildItem
+Copy-Item -Path C:\Windows\*.txt
+ls
+Copy-Item -Path C:\Windows\*.exe
+Get-ChildItem
+Get-ChildItem C:\Windows\*.* -Attributes Archive
+Get-ChildItem C:\Windows\*.* -Attributes Archive,System
+Get-ChildItem C:\Windows\*.* -Attributes System
+Get-ChildItem C:\Windows\ -Attributes System
+Get-ChildItem C:\Windows\* -Attributes System
+get-command -noun ite
+get-command -noun item
+ls
+Invoke-Item .\notepad.exe
+invoke-item .\comsetup.log
+Remove-Item 
+Remove-Item *.*
+ls
+dir C:\Windows\*.exe
+dir C:\Windows\*.exe > winfiles.txt
+ls
+Get-ChildItem hklm:\
+Get-ChildItem hklm:\ > reginfo.txt
+.\reginfo.txt
+Get-ChildItem hklm:\ 1> reginfo.txt 2> refinforerror.txt
+ls
+Remove-Item .\refinforerror.txt
+Get-ChildItem hklm:\ 1> reginfo.txt 2> reginforerror.txt
+ls
+.\reginforerror.txt
+# Get-ChildItem hklm:\ 2+> 
+get-help about_redirection -ShowWindow
+Get-ChildItem hklm:\ 2>&1 > reginfoall.txt
+.\reginfoall.txt
+Get-ChildItem C:\Windows\*.exe | Out-File -FilePath .\winexe.txt 
+ls
+.\winexe.txt
+Get-ChildItem C:\Windows\*.exe | Out-File -FilePath .\winexe.txt | Get-Member
+Get-Command -verb out
+Get-ChildItem hklm:\
+Get-ChildItem hklm:\ | out-file reg2info.txt
+.\reg2info.txt
+Get-ChildItem hklm:\ 2>&1 | out-file reg2info.txt
+.\reg2info.txt
+Get-ChildItem C:\Windows\*.exe | Out-File -FilePath .\winexe.txt
+Get-ChildItem C:\Windows\*.exe | Tee-Object -FilePath .\winexe2.txt
+Get-ChildItem C:\Windows\*.exe | Tee-Object -FilePath .\winexe2.txt | Get-Member
+Get-Command -noun content
+Set-Content -Value 'First Line' -Path .\myLog.txt
+ls
+Get-Content .\myLog.txt
+get-alias -Definition Get-Content
+Set-Content -Value 'Second Line' -Path .\myLog.txt
+cat .\myLog.txt
+Set-Content -Value 'First Line' -Path .\myLog.txt
+Add-Content -Value 'Second Line' -Path .\myLog.txt
+cat .\myLog.txt
+Get-Command -noun content
+cd .\PSFiles\
+Get-Content .\myLog.txt
+3..9 | ForEach-Object -Process {  add-content -Value "$_. line ..." -Path .\myLog.txt; Start-Sleep -Seconds 2 }
+Get-Content .\myLog.txt -Wait
+3..9 | ForEach-Object -Process {  add-content -Value "$_. line ..." -Path .\myLog.txt; Start-Sleep -Seconds 2 }
+cd .\PSFiles\
+ls
+Get-ChildItem C:\Windows\*.exe | Export-Csv -Path .\winfile.txt
+cat .\winfile.txt
+.\winfile.txt
+Get-ChildItem C:\Windows\*.exe | Select-Object -Property Name,Length,lastWriteTime,IsReadOnly # | Export-Csv -Path .\winfile.txt
+Get-ChildItem C:\Windows\*.exe | Select-Object -Property Name,Length,lastWriteTime,IsReadOnly | Export-Csv -Path .\winfile.txt
+cat .\winfile.txt
+Import-Csv .\winfile.txt
+Import-Csv .\winfile.txt | Get-Member
+$winFiles = Import-Csv .\winfile.txt 
+$winFiles | Sort-Object -Property Length -Descending
+$winFiles | Get-Member
+Get-ChildItem C:\Windows\*.exe | Select-Object -Property Name,Length,lastWriteTime,IsReadOnly | Export-Clixml -Path .\winfile.xml
+.\winfile.xml
+$Files = Import-Clixml -Path .\winfile.xml
+$Files
+$Files | Sort-Object -Property Length  -Descending
+$Files | Get-Member
+ls
+Get-ChildItem C:\Windows\*.exe | Select-Object -Property Name,Length,lastWriteTime,IsReadOnly | ConvertTo-Json
+Get-ChildItem C:\Windows\*.exe | Select-Object -Property Name,Length,lastWriteTime,IsReadOnly | ConvertTo-Json | Out-File .\winfile.json
+ls
+cat .\winfile.json
+get-content .\winfile.json | ConvertFrom-Json
+get-content .\winfile.json | ConvertFrom-Json | Get-Member
+Get-ChildItem hklm:\
+Get-PSProvider
+Set-Location env:
+Get-ChildItem
+cd hklm:
+ls
+Get-PSProvider
+Get-PSDrive
+New-PSDrive -Name x -Root \\serverX\ShareY -Persist -PSProvider FileSystem
+New-PSDrive -Name WinDir -Root C:\Windows\ -PSProvider FileSystem
+Get-ChildItem windir:\
+c:
+Get-PSProvider
+Get-ChildItem env:\
+Get-Item -Path Env:\USERNAME
+(Get-Item -Path Env:\USERNAME).Value
+$Env:USERNAME
+Get-PSProvider
+[Environment]::SetEnvironmentVariable('PSKurs','sWAT-PS Az-040', 'Machine')
+Get-ChildItem env:\pskurs
+$env:pskurs
+$env:PSKurs
+[Environment]::SetEnvironmentVariable('PSKurs','sWAT-PS Az-040')
+$env:PSKurs
+regedit.exe
+New-Item -Path hkcu:\ -Name PSKurs -Value 'hello world!'
+New-ItemProperty -Path HKCU:\PSKurs\ -Name Anzahl -Value 7 -PropertyType DWord
+Set-ItemProperty -Path HKCU:\PSKurs\ -Name Anzahl -Value 8
+Get-ItemProperty -Path HKCU:\PSKurs\ -Name Anzahl
+Get-ItemProperty -Path HKCU:\PSKurs\ -Name Anzahl | Get-Member
+(Get-ItemProperty -Path HKCU:\PSKurs\ -Name Anzahl ).Anzahl
+Get-ItemPropertyValue -Path HKCU:\PSKurs\ -Name Anzahl
+Get-Item -Path HKCU:\PSKurs\
+Get-Item -Path HKCU:\PSKurs\ | Get-Member
+(Get-Item -Path HKCU:\PSKurs\).GetValue('Anzahl')
+(Get-Item -Path HKCU:\PSKurs\).GetValueKind('Anzahl')
+Remove-Item -Path HKCU:\PSKurs\ -Recurse
+Set-ExecutionPolicy -ExecutionPolicy Restricted
+Get-ExecutionPolicy
+Get-ExecutionPolicy -List
+Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser
+exit
+cd \
+md PSScripts
+cd .\PSScripts\
+notepad
+ls
+Script01.ps1
+.\Script01.ps1
+winget search visualstudiocode
+winget install --id Microsoft.VisualStudioCode
+winget install git.git
+cd ..
+git clone https://github.com/distcode/pscourse-cw24.git
+cd .\pscourse-cw24\
+ls
+cd ..
+Move-Item .\PSScripts\ -Destination C:\pscourse-cw24\
+git config --global user.name distcode
+git config --global user.email office@dist.at
+cd .\pscourse-cw24\
+# git pull origin main
+ls
+cd .\PSScripts\
+cd \
+ls
+cd .\pscourse-cw24\
+ls
+code
+cd .\PSScripts\
+.\Script03.ps1 -Mood VeryBad
+cd ..
+ls
+get status
+git status
+git add -A
+git status
+git commit -m 'Initially Added'
+git push origin main
+cd \
+Get-Command -Module CimCmdlets
+Get-CimClass
+Get-CimClass -Namespace root/Hardware
+Get-CimClass -ClassName Win32_Process
+Get-CimClass -ClassName Win32_Process | Select-Object -ExpandProperty CimClassProperties
+Get-CimClass -ClassName Win32_Process | Select-Object -ExpandProperty CimClassProperties | Format-Table
+Get-CimClass -ClassName Win32_Process | Select-Object -ExpandProperty CimClassMethods | Format-Table
+Get-CimInstance -ClassName Win32_Process
+Get-CimInstance -ClassName Win32_Product
+Get-CimInstance -ClassName Win32_Process
+Get-CimInstance -ClassName Win32_Process | Select-Object -f 1
+Get-CimInstance -ClassName Win32_Process | Where-Object { $_.Name -notlike 'svchost.exe' }
+# get-CimInstance -ClassName Win32_Process | Where-Object { $_.Name -notlike 'svchost.exe' }
+Get-CimInstance -Query ' Select * From Win32_Process Where Name like "p%" '
+Get-CimInstance -Query ' Select * From Win32_Process Where Name not like "p%" '
+Get-CimInstance -Query ' Select * From Win32_Process Where Name notlike "p%" '
+Get-CimInstance -Query ' Select * From Win32_Process Where Name !like "p%" '
+Get-CimInstance -Query ' Select * From Win32_Process Where Name like "p%" '
+get-help about_wql -ShowWindow
+notepad (Get-PSReadLineOption).HistorySavePath
+Get-Content C:\Windows\setupact.log
+# Day 4
+Get-ItemPropertyValue -Path HKLM:\SOFTWARE\Microsoft\DirectX\ -Name Version
+Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\DirectX\
+(Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\DirectX\).Version
+(Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\DirectX\)
+(Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\DirectX\).(default)
+(Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\DirectX\).'(default)'
+Get-ItemPropertyValue -Path HKLM:\SOFTWARE\Microsoft\DirectX\ -Name '(default)'
+cd .\Windows\  
+Get-Content .\setupact.log -last 10
+Get-Content .\setupact.log -tail 10
+get-help Get-Content -ShowWindow
+Get-Content .\setupact.log 
+(Get-Content .\setupact.log )[3]
+(Get-Content .\setupact.log )[5]
+(Get-Content .\setupact.log ).GetType()
+(Get-Content .\setupact.log -tail 10 )[5]
+(Get-Content .\setupact.log -tail 10 )[5].GetType()
+(Get-Content .\setupact.log )
+(Get-Content .\setupact.log ).count
+(Get-Content .\setupact.log ) | Where-Object { $_ -like '*Migrated*' }
+(Get-Content .\setupact.log ) | Where-Object { $_ -like '*Migrated*' } | measure
+cd C:\Temp\
+New-Guid
+(New-Guid ).guid
+(New-Guid ).guid | New-Guid
+$newContent = 'Das ist die eine Zeile.`nDas ist die andere Zeile.'
+$newContent
+$newContent = "Das ist die eine Zeile.`nDas ist die andere Zeile."
+$newContent
+Set-Content -Path .\GUID.txt -Value ((New-Guid).Guid),$newContent
+Get-Content .\GUID.txt
+# Set-Content -Path .\GUID.txt -Value ((New-Guid).Guid),$newContent
+Get-Content .\GUID.txt
+get-process | Where-Object { $_.ProcessName -ne 'svchost' }
+# get-process | Where-Object { $_.ProcessName -ne 'svchost' } | Select-Object -Property Id,ProcessName,HandleCount
+Get-Process | Get-Member
+get-process | Where-Object { $_.ProcessName -ne 'svchost' } | Select-Object -Property Id,ProcessName,HandleCount
+get-process | Where-Object { $_.ProcessName -ne 'svchost' } | Select-Object -Property Id,ProcessName,HandleCount | Export-Csv -Path C:\Temp\processes.csv
+1..3 | % { notepad }
+Get-Process notepad
+code .\processes.csv
+Get-Process notepad | Export-Csv -Path .\processes.csv -Append
+Get-ChildItem C:\Windows\System32\*.cpl
+Get-ChildItem C:\Windows\System32\*.cpl | ForEach-Object -Process { $_ }
+Get-ChildItem C:\Windows\System32\*.cpl | ForEach-Object -Process { $_.name }
+Get-ChildItem C:\Windows\System32\*.cpl | ForEach-Object -Process { Copy-Item -Path $_.FullName -Destination C:\Temp\ }
+ls
+Remove-Item *.* -Recurse -Force
+Get-ChildItem C:\Windows\System32\*.cpl | ForEach-Object -Process { Copy-Item -Path $_.FullName -Destination C:\Temp\; Write-Host "File $($_.Name) wurde kopiert." }
+ls
+Get-ChildItem C:\Windows\System32\*.cpl | ForEach-Object -Process { Copy-Item -Path $_.FullName -Destination C:\Temp\; Write-Host "File $($_.Name) wurde kopiert."; $i++ } -Begin { Write-Host "Files werden kopiert!" -ForegroundColor Cyan; $i = 0 } -End { Write-Host "Es wurden $i Files kopiert." -ForegroundColor Cyan }
+Get-ChildItem .\appwiz.cpl | Get-Member
+Get-ChildItem .\appwiz.cpl | Select-Object -Property FullName
+Get-ChildItem .\appwiz.cpl | Select-Object -Property FullName,Name,Extension,BaseName | fl *
+Get-ChildItem C:\Windows\System32\*.cpl | ForEach-Object -Process { Copy-Item -Path $_.FullName -Destination C:\Temp\; Write-Host "File $($_.Name) wurde kopiert."; $i++; $size += $_.Length } -Begin { Write-Host "Files werden kopiert!" -ForegroundColor Cyan; $i = 0; $Size = 0 } -End { Write-Host "Es wurden $i Files und insgesamt $Size Byte kopiert." -ForegroundColor Cyan }
+Get-ChildItem C:\windows\System32\*.cpl | `
+ForEach-Object -Begin {`
+$i = 0 }
+Get-CimClass -ClassName Win32_ComputerSystem
+(Get-CimClass -ClassName Win32_ComputerSystem).CimClassProperties | ft
+Get-CimInstance -ClassName Win32_ComputerSystem
+(Get-CimInstance -ClassName Win32_ComputerSystem).TotalPhysicalMemory
+Get-CimClass -ClassName *memory*
+Get-CimInstance -ClassName Win32_PhysicalMemory
+Get-CimInstance -ClassName Win32_PhysicalMemory | Format-Table
+(Get-CimInstance -ClassName Win32_OperatingSystem).LastBootUpTime
+Get-CimInstance -ClassName Win32_StartupCommand
+Get-CimInstance -ClassName Win32_StartupCommand | Measure-Object 
+Get-CimClass -ClassName Win32_StartupCommand
+Get-VM
+Get-Command -ParameterName AsJob
+Get-VM | Stop-VM -Force -AsJob 
+Get-Job
+Get-Job -Id 1 | fl Command
+$env:TEMP
+ls $env:TEMP
+ls $env:TEMP -Recurse | measure
+ls $env:TEMP -Recurse | measure -Property Length -Sum
+$env:TMP
+ls $env:TMP 
+$env:TMP;$env:TEMP
+Get-ChildItem env:\*temp*
+Get-ChildItem env:\*tmp*
+Get-ChildItem env:\
+Get-ChildItem C:\Windows\ -Directory -Recurse | Get-ChildItem | Measure-Object -Property Length -Sum
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | Get-ChildItem | Measure-Object -Property Length -Sum
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | % { Get-ChildItem $_ } | Measure-Object -Property Length -Sum
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | % { $_.FullName; Get-ChildItem $_.Directory.FullName | Measure-Object -Property Length -Sum }
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | % { $_.FullName; Get-ChildItem $_.FullName -File | Measure-Object -Property Length -Sum }
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | % { $_.FullName; $DirectorySize = Get-ChildItem $_.FullName -File | Measure-Object -Property Length -Sum; $_.Size }
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | % { $_.FullName; $DirectorySize = Get-ChildItem $_.FullName -File | Measure-Object -Property Length -Sum; $DirectorySize.Sum }
+Get-ChildItem 'C:\Program Files\' -Directory -Recurse | % { $DirectorySize = Get-ChildItem $_.FullName -File | Measure-Object -Property Length -Sum; "$($DirectorySize.Sum) $($_.FullName)" }
+Get-ChildItem 'C:\Windows' -Directory -Recurse | % { $DirectorySize = Get-ChildItem $_.FullName -File | Measure-Object -Property Length -Sum; "$($DirectorySize.Sum) $($_.FullName)" }
+# Day 5
+cd .\pscourse-cw24\
+git subtree -h
+git subtree add --prefix EntraID https://github.com/distcode/graphps-entraid --squash
+git subtree add --prefix EntraID https://github.com/distcode/graphps-entraid main --squash
+cd \
+# Install-PSResource 
+Find-PSResource Microsoft.Graph
+Install-PSResource Microsoft.Graph
+Get-Module -ListAvailable -Name Microsoft.Graph*
+Install-PSResource Az 
+Connect-MgGraph -Scopes User.ReadWrite.All,Group.ReadWrite.All
+Get-Command -noun mguser
+Get-MgContext
+(Get-MgContext).Scopes
+Get-MgUser 
+Get-Module az* -ListAvailable
+Connect-AzAccount 
+Get-AzSubscription
+Select-AzSubscription -Subscription AzDemoSub
+Get-AzResourceGroup
+Get-AzResourceGroup | ft
+Get-AzResource -ResourceGroupName RG-IaC-Preparation | ft
+Get-AzStorageAccountNameAvailability -Name sa007
+Get-AzStorageAccountNameAvailability -Name pscw24demo
+New-AzStorageAccount -Name pscw24demo -ResourceGroupName RG-IaC-Preparation -Location 'Austria East' -SkuName Standard_LRS -Kind StorageV2 
+Get-AzResource -ResourceGroupName RG-IaC-Preparation | ft
+$sa = Get-AzStorageAccount -ResourceGroupName RG-IaC-Preparation -Name pscw24demo
+$sa
+$sa | Format-List *
+$sa.PrimaryEndpoints
+Get-Command -Module Az* | Measure-Object
+Get-Command -Module Microsoft.Graph* | Measure-Object
+Get-Command -Module Microsoft.Graph.Mail
+Find-module *exchange*`
+
+Install-PSResource ExchangeOnlineManagement
+Get-Module -ListAvailable ExchangeOnlineManagement
+get-command -Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Install-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Get-Module 
+Get-Command -Module tmpEXO_qv2xq5st.tcx
+Find-Module *sharepoint*
+Install-Module Microsoft.Online.SharePoint.Powershell
+Get-Command -Module Microsoft.Online.SharePoint.PowerShell
+Get-Command -Module Microsoft.Online.SharePoint.PowerShell -na Connect-SPOService
+Connect-SPOService -Url 'dithos71-admin.sharepoint.com'
+Connect-SPOService -Url 'https://dithos71-admin.sharepoint.com'
+Connect-SPOService -Url 'https://dist71-admin.sharepoint.com'
+Get-SPOSite
+Find-Module *sharepoint*
+Find-Module *teams*
+Get-Module -ListAvailable -Name P*
+hostname
+cd .\pscourse-cw24\
+ls
+git status
+git add -A
+git commit -m 'Initially added'
+git push origin main
+cd \
+Get-VM
+Get-VM | Out-GridView
+Get-VM | Out-GridView -PassThru
+Copy-Item C:\Windows\*.* -Destination C:\Temp\ -PassThru
+Get-VM | Out-GridView -PassThru
+Get-VM | Out-GridView -PassThru | Stop-VM -Force
+Get-VM
+Get-VM | Out-GridView -OutputMode Single
+Get-VM | Out-GridView -OutputMode Single
+get-command Send-MgUserMail
+get-command *mail*
+(Get-PSReadLineOption).HistorySavePath
+copy-item (Get-PSReadLineOption).HistorySavePath -Destination .\pscourse-cw24\PSScripts\
